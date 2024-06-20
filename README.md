@@ -7,7 +7,7 @@
 Overview
 --------
 
-DataPlus is a lightweight DatastoreService helper, built on the [popular Fusion framework](). DataPlus, when packaged with Fusion, can bring DatastoreService ability to any game immediately. No advanced knowledge needed. 
+DataPlus is a lightweight Roblox DatastoreService helper, built on the [popular Fusion framework](https://github.com/carrcreative/fusion/). DataPlus, when packaged with Fusion, can bring DatastoreService ability to any game immediately. No advanced knowledge needed. 
 
 **Please note:** DataPlus+Fusion packages will be coming out soon
 
