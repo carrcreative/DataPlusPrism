@@ -1,5 +1,5 @@
 -- Importing the Fusion framework from the ReplicatedStorage
-local FusionFramework = require(game.ReplicatedStorage.Fusion)
+local FusionFramework = require(game.ReplicatedStorage:WaitForChild("Fusion"))
 
 -- Configuration settings for DataPlus
 local Config = {
@@ -25,7 +25,6 @@ local BatchInterval = 50 -- Time in seconds between batches
 
 -- Retrieves data, checking cache first if LudacrisMode is off
 function DataPlus:GetData(Key, Scope)
-	print(Key, "GetData")
 	if Config.LudacrisMode then
 		return cache[Key]
 	else
@@ -46,7 +45,6 @@ end
 
 -- Sets data, adds it to the update queue, and updates cache
 function DataPlus:SetData(Scope, Value)
-	print(Scope, Value, "SetData")
 	UpdateQueue[Scope] = Value
 	cache[Scope] = Value
 	internal:SaveVersion(Scope, Value)
