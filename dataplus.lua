@@ -1,10 +1,9 @@
 -- Importing the Fusion framework from the ReplicatedStorage
-local FusionFramework = require(game.ReplicatedStorage:WaitForChild("Fusion"))
+local FusionFramework = require(game.ReplicatedStorage.Fusion)
 
 -- Configuration settings for DataPlus
 local Config = {
 	LudacrisMode = false, -- If true, bypasses caching and pulls directly from DataStore
-	DisableBackupService = false, -- If true, disables the backup service
 	BackupInterval = 200, -- Time in seconds between each backup
 }
 
@@ -25,7 +24,8 @@ local BatchSize = 10 -- Number of updates per batch
 local BatchInterval = 50 -- Time in seconds between batches
 
 -- Retrieves data, checking cache first if LudacrisMode is off
-function DataPlus:GetData(Key)
+function DataPlus:GetData(Key, Scope)
+	print(Key, "GetData")
 	if Config.LudacrisMode then
 		return cache[Key]
 	else
@@ -45,13 +45,12 @@ local function Write(...)
 end
 
 -- Sets data, adds it to the update queue, and updates cache
-function DataPlus:SetData(Key, Value)
-	UpdateQueue[Key] = Value
-	cache[Key] = Value
-	if not Config.DisableBackupService then
-		internal:SaveVersion(Key, Value)
-		return true 
-	end
+function DataPlus:SetData(Scope, Value)
+	print(Scope, Value, "SetData")
+	UpdateQueue[Scope] = Value
+	cache[Scope] = Value
+	internal:SaveVersion(Scope, Value)
+	return true 
 end
 
 -- Saves a new version of the data for rollback purposes
@@ -94,7 +93,7 @@ local function BatchUpdateDataStore()
 			end
 			UpdateQueue[Key] = nil
 		end
-		Write("DataPlus batch upload completed")
+		Write("Data batch upload completed")
 	end
 end
 
@@ -103,8 +102,6 @@ function internal:AuthenticateWithFusion(AppData)
 	local APIPackage = FusionFramework:Authenticate(script, AppData)
 	internal.PrivateKey = APIPackage.Key
 	internal.AppAPI = APIPackage.AppAPI
-
-	Write("DataPlus daemon has been started")
 end
 
 -- Initiates the batch update process at intervals defined in Config
@@ -116,10 +113,10 @@ end)
 
 -- AppData for DataPlus, containing metadata
 local AppData = {
-	Version = "0.85b",
+	Version = "0.95b",
 	Description = "DataPlus Service",
 	API = DataPlus,
-	FriendlyName = "DataPlus"
+	FriendlyName = "Data+Fusion"
 }
 
 -- Ensures DataPlus performs a final batch update before the game closes
