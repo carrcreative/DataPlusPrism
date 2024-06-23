@@ -1,4 +1,4 @@
-![image](https://github.com/carrcreative/Data-Fusion/assets/173332208/78e8b271-421d-42f0-bf27-238477833810)
+![image](https://github.com/carrcreative/Data-Fusion/assets/173332208/db797f02-0d7d-473a-a4a6-079957985c9b)
 
 
 
