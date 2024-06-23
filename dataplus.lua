@@ -111,7 +111,7 @@ end)
 
 -- AppData for DataPlus, containing metadata
 local AppData = {
-	Version = "0.95b",
+	Version = "1.0",
 	Description = "DataPlus Service",
 	API = DataPlus,
 	FriendlyName = "Data+Fusion"
