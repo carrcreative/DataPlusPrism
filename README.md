@@ -12,9 +12,9 @@ Overview
 
 DataPlus is a lightweight Roblox DatastoreService helper, built on the [popular Fusion framework](https://github.com/carrcreative/fusion/). DataPlus, when packaged with Fusion, can bring DatastoreService ability to any game immediately. No advanced knowledge needed. 
 
-[Get the Roblox model available on the Creator Store!](https://create.roblox.com/store/asset/18158091161/DataPlusFusion?viewFromStudio=true&keyword=&searchId=7c9974fc-b875-4042-ad28-08cfe4f01028)
+[Data+Fusion Creator Edition (Roblox Creator Hub)](https://create.roblox.com/store/asset/18158091161/DataPlusFusion?viewFromStudio=true&keyword=&searchId=7c9974fc-b875-4042-ad28-08cfe4f01028)
 
-[Our latest binaries available for download.](https://github.com/carrcreative/Data-Fusion/releases/tag/pre-release) 
+[Data+Fusion XML Download](https://github.com/carrcreative/Data-Fusion/releases/tag/pre-release) 
 
 API Functions
 -------------
@@ -51,12 +51,12 @@ Script Examples
 
 Lua
 
-    Fusion:Post(PrivateKey, "SetData", "PlayerScore", 100) 
+    Fusion:f(PrivateKey, "SetData", "PlayerScore", 100) 
 
 ### Getting Data
 
 Lua
     
-    local PlayerScore = Fusion:Post(PrivateKey, "GetData", "PlayerScore")
+    local PlayerScore = Fusion:f(PrivateKey, "GetData", "PlayerScore")
     print(PlayerScore)
     
