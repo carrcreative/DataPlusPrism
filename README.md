@@ -1,4 +1,5 @@
-![image](https://github.com/carrcreative/Data-Fusion/assets/173332208/db797f02-0d7d-473a-a4a6-079957985c9b)
+![image](https://github.com/carrcreative/Data-Fusion/assets/173332208/7ec92e69-1bc4-48b8-8043-6d95b81cb8ec)
+
 
 
 
@@ -10,11 +11,11 @@
 Overview
 --------
 
-DataPlus is a lightweight Roblox DatastoreService helper, built on the [popular Fusion framework](https://github.com/carrcreative/fusion/). DataPlus, when packaged with Fusion, can bring DatastoreService ability to any game immediately. No advanced knowledge needed. 
+DataPlus is a lightweight Roblox DatastoreService helper, built on the [popular Prism framework](https://github.com/carrcreative/Prism/). DataPlus, when packaged with Prism, can bring DatastoreService ability to any game immediately. No advanced knowledge needed. 
 
-[Data+Fusion Creator Edition (Roblox Creator Hub)](https://create.roblox.com/store/asset/18158091161/DataPlusFusion?viewFromStudio=true&keyword=&searchId=7c9974fc-b875-4042-ad28-08cfe4f01028)
+[Data+Prism Creator Edition (Roblox Creator Hub)](https://create.roblox.com/store/asset/18158091161/DataPlusPrism?viewFromStudio=true&keyword=&searchId=7c9974fc-b875-4042-ad28-08cfe4f01028)
 
-[Data+Fusion XML Download](https://github.com/carrcreative/Data-Fusion/releases/tag/pre-release) 
+[Data+Prism XML Download](https://github.com/carrcreative/Data-Prism/releases/tag/pre-release) 
 
 API Functions
 -------------
@@ -51,12 +52,12 @@ Script Examples
 
 Lua
 
-    Fusion:f(PrivateKey, "SetData", "PlayerScore", 100) 
+    Prism:f(PrivateKey, "SetData", "PlayerScore", 100) 
 
 ### Getting Data
 
 Lua
     
-    local PlayerScore = Fusion:f(PrivateKey, "GetData", "PlayerScore")
+    local PlayerScore = Prism:f(PrivateKey, "GetData", "PlayerScore")
     print(PlayerScore)
     
