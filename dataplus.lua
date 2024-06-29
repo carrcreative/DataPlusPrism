@@ -1,10 +1,11 @@
--- Importing the Fusion framework from the ReplicatedStorage
-local FusionFramework = require(game.ReplicatedStorage:WaitForChild("Fusion"))
+-- Importing the Prism framework from the ReplicatedStorage
+local PrismFramework = require(game.RequiredService:WaitForChild("Prism"))
 
 -- Configuration settings for DataPlus
 local Config = {
 	LudacrisMode = false, -- If true, bypasses caching and pulls directly from DataStore
 	BackupInterval = 200, -- Time in seconds between each backup
+	CacheTimeout = 2; 
 }
 
 -- Main DataPlus table
@@ -32,13 +33,21 @@ function DataPlus:GetData(Key, Scope)
 			local success, result = pcall(mainDataStore.GetAsync, mainDataStore, Key)
 			if success then
 				cache[Key] = result
+				-- Set a timer to invalidate the cache after a certain period
+				delay(Config.CacheTimeout, function()
+					cache[Key] = nil
+				end)
 			end
+		end
+		-- If data is still nil, wait for it to be available
+		while cache[Key] == nil do
+			wait(1) -- wait for 1 second before checking again
 		end
 		return cache[Key]
 	end
 end
 
--- Helper function to write logs using Fusion's API
+-- Helper function to write logs using Prism's API
 local function Write(...)
 	internal.AppAPI:Write(internal.PrivateKey, ...)
 end
@@ -95,9 +104,9 @@ local function BatchUpdateDataStore()
 	end
 end
 
--- Authenticates with the Fusion framework and starts the service
-function internal:AuthenticateWithFusion(AppData)
-	local APIPackage = FusionFramework:Authenticate(script, AppData)
+-- Authenticates with the Prism framework and starts the service
+function internal:AuthenticateWithPrism(AppData)
+	local APIPackage = PrismFramework:Authenticate(script, AppData)
 	internal.PrivateKey = APIPackage.Key
 	internal.AppAPI = APIPackage.AppAPI
 end
@@ -114,11 +123,12 @@ local AppData = {
 	Version = "1.0",
 	Description = "DataPlus Service",
 	API = DataPlus,
-	FriendlyName = "Data+Fusion"
+	FriendlyName = "Data+Prism",
+	Depend = {""}
 }
 
 -- Ensures DataPlus performs a final batch update before the game closes
 game:BindToClose(BatchUpdateDataStore) 
 
--- Starts the DataPlus service by authenticating with Fusion
-internal:AuthenticateWithFusion(AppData)
+-- Starts the DataPlus service by authenticating with Prism
+internal:AuthenticateWithPrism(AppData)
