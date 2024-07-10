@@ -52,12 +52,12 @@ Script Examples
 
 Lua
 
-    Prism:f(PrivateKey, "SetData", "PlayerScore", 100) 
+    Prism.AppAPI:f(PrivateKey, "SetData", "PlayerScore", 100) 
 
 ### Getting Data
 
 Lua
     
-    local PlayerScore = Prism:f(PrivateKey, "GetData", "PlayerScore")
+    local PlayerScore = Prism.AppAPI:f(PrivateKey, "GetData", "PlayerScore")
     print(PlayerScore)
     
