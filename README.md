@@ -15,7 +15,8 @@ DataPlus is a lightweight Roblox DatastoreService helper, built on the [popular 
 
 [Data+Prism Creator Edition (Roblox Creator Hub)](https://create.roblox.com/store/asset/18158091161/DataPlusPrism?viewFromStudio=true&keyword=&searchId=7c9974fc-b875-4042-ad28-08cfe4f01028)
 
-[Data+Prism XML Download](https://github.com/carrcreative/Data-Prism/releases/tag/pre-release) 
+[Data+Prism RBXM Download 
+](https://github.com/carrcreative/DataPlusPrism/releases/tag/6)
 
 API Functions
 -------------
