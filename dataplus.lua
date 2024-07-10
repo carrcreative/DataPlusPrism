@@ -22,7 +22,7 @@
 		- Drag and drop, easy software updates due to backwards compatibility 
 		
 		
-	In the most recent 1.2 update, we built in full compatibility to the most recent Prism version 1.2. 
+	In the most recent update (D+P 6), we built in full compatibility to the most recent Prism version 1.2. 
 	This prevents deprecated messages from filling up your ouput. 
 	
 	Our creator edition had some big changes to detect other Prism installations. This ensures that Data+Prism attaches
@@ -166,7 +166,7 @@ end)
 -- AppData for DataPlus, containing metadata
 -- This is like our ID card for DataPlus
 local AppData = {
-	Version = "1.2",
+	Version = "6",
 	Description = "DataPlus Service",
 	API = DataPlus,
 	FriendlyName = "Data+Prism",
